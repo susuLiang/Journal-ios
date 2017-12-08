@@ -81,9 +81,9 @@
 			children = (
 				1F1B565A1FDA2A9800C68B17 /* Main.storyboard */,
 				1F1B56561FDA2A9800C68B17 /* AppDelegate.swift */,
+				1F97285C1FDA318500A37B8F /* JournalEntry.swift */,
 				1F1B56581FDA2A9800C68B17 /* MyJournalsController.swift */,
 				1F97285A1FDA313F00A37B8F /* MyJournalsTableViewCell.swift */,
-				1F97285C1FDA318500A37B8F /* JournalEntry.swift */,
 				1F97285E1FDA39D000A37B8F /* AddNewController.swift */,
 				1F1B56601FDA2A9800C68B17 /* Assets.xcassets */,
 				1F1B56621FDA2A9800C68B17 /* LaunchScreen.storyboard */,

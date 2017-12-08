@@ -7,68 +7,129 @@
 //
 
 import UIKit
+import Firebase
 
 class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    // MARK: - Property
     @IBOutlet weak var photoPlaced: UIImageView!
+
     @IBOutlet weak var titleTextField: UITextField!
+
     @IBOutlet weak var contentTextField: UITextField!
+
     @IBOutlet weak var cancelButton: UIButton!
+
     @IBOutlet weak var saveButton: UIButton!
-    
+
+    @IBOutlet weak var separator: UIView!
+
+    var imagePicker: UIImagePickerController!
+
+    @IBAction func pickPhoto(_ sender: UIButton) {
+
+        imagePicker = UIImagePickerController()
+
+        imagePicker.delegate = self
+
+        imagePicker.allowsEditing = false
+
+        imagePicker.sourceType = .photoLibrary
+
+        present(imagePicker, animated: true, completion: nil)
+
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setTextField()
+
         setSaveButton()
 
-        // Do any additional setup after loading the view.
+        setPhotoPlaceeHolder()
+
+        setSeparator()
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
+    func saveEntry() {
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }
 
+// MARK: - Set up views
 extension AddNewController {
-    
+
     func setTextField() {
-        
+
         titleTextField.isUserInteractionEnabled = true
-        
+
         titleTextField.becomeFirstResponder()
-        
+
         titleTextField.borderStyle = .none
-        
+
+        contentTextField.contentVerticalAlignment = .top
+
         contentTextField.isUserInteractionEnabled = true
-        
+
         contentTextField.becomeFirstResponder()
-        
+
         contentTextField.borderStyle = .none
-        
+
     }
-    
+
     func setSaveButton() {
-        
+
         saveButton.layer.cornerRadius = 22
-        
+
         saveButton.titleLabel?.font = UIFont(name: "SFUIText", size: 20)
-        
+
+        saveButton.frame.size.height = 44
+
+        saveButton.backgroundColor = UIColor(red: 237/255, green: 96/255, blue: 81/255, alpha: 1)
+
     }
-    
-    
-    
-    
+
+    func setPhotoPlaceeHolder() {
+
+        photoPlaced.backgroundColor = UIColor(red: 67/255, green: 87/255, blue: 97/255, alpha: 1)
+
+        photoPlaced.image = UIImage(named: "icon_photo")?.withRenderingMode(.alwaysTemplate)
+
+        photoPlaced.contentMode = .center
+
+        photoPlaced.tintColor = UIColor.white
+
+    }
+
+    func setSeparator() {
+
+        separator.backgroundColor = UIColor(red: 171/255, green: 179/255, blue:176/255, alpha: 1)
+
+        separator.frame.size.height = 0.5
+    }
+
+}
+
+// MARK: - UIImagePickerControllerDelegate Methods
+extension AddNewController {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+
+            photoPlaced.image = pickedImage
+
+            photoPlaced.contentMode = .scaleAspectFill
+
+            dismiss(animated: true, completion: nil)
+
+        }
+    }
+
 }
