@@ -47,13 +47,18 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
         present(imagePicker, animated: true, completion: nil)
 
     }
+    
+    override public var preferredStatusBarStyle: UIStatusBarStyle {
+        
+        return .lightContent
+        
+    }
+
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        UIApplication.shared.statusBarStyle = .lightContent
-    
         setTextField()
 
         setSaveButton()
