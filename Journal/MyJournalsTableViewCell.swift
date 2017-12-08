@@ -13,19 +13,18 @@ class MyJournalsTableViewCell: UITableViewCell {
     @IBOutlet weak var photoPlaced: UIImageView!
     @IBOutlet weak var journalTitle: UILabel!
     @IBOutlet weak var separatorView: UIView!
-
+    @IBOutlet weak var showCellButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpSearatorView()
         setUpPhotoPlaced()
 
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
     func setUpSearatorView() {
@@ -41,6 +40,10 @@ class MyJournalsTableViewCell: UITableViewCell {
         let view = photoPlaced!
 
         view.layer.cornerRadius = 8
+        
+        view.contentMode = .center
+        
+        view.clipsToBounds = true
 
     }
 

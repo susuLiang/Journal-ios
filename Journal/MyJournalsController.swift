@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Nuke
 
 class MyJournalsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -39,17 +40,19 @@ class MyJournalsController: UIViewController, UITableViewDelegate, UITableViewDa
                         }
                     }
                 }
+                self.tableView.reloadData()
             }
         }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return journals.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? MyJournalsTableViewCell else { fatalError() }
-
+        cell.journalTitle.text = journals[indexPath.row].title
+        Nuke.loadImage(with: journals[indexPath.row].imageURL , into: cell.photoPlaced)
         return cell
     }
 
@@ -71,5 +74,46 @@ class MyJournalsController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBAction func back(segue: UIStoryboardSegue) {
     }
+    
+    
+    @IBAction func showCell(_ sender: UIButton) {
+        if
+
+            let cell = sender.superview?.superview as? MyJournalsTableViewCell,
+
+            let tableview = cell.superview as? UITableView,
+
+            let indexPath = tableview.indexPath(for: cell) {
+
+                performSegue(withIdentifier: "showCell", sender: self.journals[indexPath.row])
+            
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCell" {
+            if let showVC = segue.destination as? AddNewController {
+                if let journal = sender as? Journal {
+                    showVC.journal = journal
+                }
+            }
+        }
+    }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "showCell", sender: journals[indexPath.row])
+//    }
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "showCell" {
+//            if let showVC = segue.destination as? AddNewController {
+//                if let journal = sender as? Journal {
+//                    showVC.journal = journal
+//                    print(showVC.journal)
+//                }
+//            }
+//        }
+//    }
 
 }

@@ -13,6 +13,8 @@ import FirebaseDatabase
 class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // MARK: - Property
+    var journal: Journal?
+    
     @IBOutlet weak var photoPlaced: UIImageView!
 
     @IBOutlet weak var titleTextField: UITextField!
@@ -47,7 +49,7 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         setTextField()
 
         setSaveButton()
@@ -55,7 +57,17 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
         setPhotoPlaceeHolder()
 
         setSeparator()
-
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(journal)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
 
     @IBAction func saveEntry() {
@@ -104,7 +116,7 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
             ref.child("Entry").childByAutoId().setValue(value)
 
         }
-
+        
     }
 
 }
@@ -127,6 +139,13 @@ extension AddNewController {
         contentTextField.becomeFirstResponder()
 
         contentTextField.borderStyle = .none
+        
+        if journal != nil {
+            
+            titleTextField.text = journal?.title
+            
+            contentTextField.text = journal?.content
+        }
 
     }
 
