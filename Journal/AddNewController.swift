@@ -59,12 +59,14 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
     }
 
     @IBAction func saveEntry() {
-        
+
         guard
 
             let content = contentTextField.text,
 
-            let title = titleTextField.text
+            let title = titleTextField.text,
+
+            let photo = photoPlaced.image
 
         else {
 
@@ -74,11 +76,34 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
 
         }
 
+        var data = Data()
+
+        data = UIImageJPEGRepresentation(photoPlaced.image!, 1)!
+
         let ref = Database.database().reference()
 
-        let value = ["title": title, "content": content]
+        let storageRef = Storage.storage().reference()
 
-        ref.child("Entry").childByAutoId().setValue(value)
+        let metadata = StorageMetadata()
+
+        metadata.contentType = "image/jpg"
+
+        let uploadTask = storageRef.child("\(title).jpg").putData(data, metadata: metadata) { (metadata, error) in
+
+            guard let metadata = metadata else {
+
+                // Todo: error handling
+
+                return
+            }
+
+            let downloadURL = metadata.downloadURL()?.absoluteString
+
+            let value = ["title": title, "content": content, "imageURL": downloadURL]
+
+            ref.child("Entry").childByAutoId().setValue(value)
+
+        }
 
     }
 
