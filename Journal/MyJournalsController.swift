@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class MyJournalsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pageTitleLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
+    var journals: [Journal] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +22,25 @@ class MyJournalsController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        Database.database().reference().child("Entry").observe(.value) { (snapshot) in
+
+            self.journals = []
+
+            if let objects = snapshot.children.allObjects as? [DataSnapshot] {
+
+                for object in objects {
+                    if let entry = object.value as? NSDictionary {
+                        if
+                            let title = entry["title"] as? String,
+                            let content = entry["content"] as? String,
+                            let imageURL = entry["imageURL"] as? String {
+                            self.journals.append(Journal(title: title, content: content, urlString: imageURL))
+                        }
+                    }
+                }
+            }
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,7 +70,6 @@ class MyJournalsController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     @IBAction func back(segue: UIStoryboardSegue) {
-
     }
 
 }
