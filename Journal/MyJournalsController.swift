@@ -55,7 +55,7 @@ class MyJournalsController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     @IBAction func back(segue: UIStoryboardSegue) {
-        
+
     }
 
 }

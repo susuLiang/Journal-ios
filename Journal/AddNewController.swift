@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -25,6 +26,10 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
     @IBOutlet weak var separator: UIView!
 
     var imagePicker: UIImagePickerController!
+
+    var ref: DatabaseReference?
+
+    var handle: DatabaseHandle?
 
     @IBAction func pickPhoto(_ sender: UIButton) {
 
@@ -53,11 +58,27 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    @IBAction func saveEntry() {
+        
+        guard
 
-    func saveEntry() {
+            let content = contentTextField.text,
+
+            let title = titleTextField.text
+
+        else {
+
+            print("Form is not valid")
+
+            return
+
+        }
+
+        let ref = Database.database().reference()
+
+        let value = ["title": title, "content": content]
+
+        ref.child("Entry").childByAutoId().setValue(value)
 
     }
 
