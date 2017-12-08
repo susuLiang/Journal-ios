@@ -13,6 +13,7 @@
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
         </array>
     </customFonts>
     <scenes>
@@ -47,7 +48,7 @@
                                                         <constraint firstAttribute="height" constant="16" id="6bV-Id-hor"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.26274509800000001" green="0.3411764706" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aM6-7F-UUG">
@@ -86,17 +87,20 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Journals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2w-uW-VcV">
-                                <rect key="frame" x="30" y="34" width="93" height="24"/>
+                                <rect key="frame" x="30" y="34" width="117" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="3fd-2u-ukV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.2627450980392157" green="0.3411764705882353" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PX0-hR-uI6">
-                                <rect key="frame" x="321" y="36" width="22" height="22"/>
-                                <state key="normal" title="Button" image="icon_plus"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PX0-hR-uI6">
+                                <rect key="frame" x="321" y="22" width="44" height="44"/>
+                                <color key="tintColor" red="0.92941176469999998" green="0.37647058820000001" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="" image="icon_plus">
+                                    <color key="titleColor" red="0.92941176469999998" green="0.37647058820000001" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="R2K-mv-Edy" kind="show" identifier="addNew" id="dAQ-ft-LpA"/>
                                 </connections>
@@ -107,13 +111,13 @@
                             <constraint firstAttribute="trailing" secondItem="Qgd-Ao-xvN" secondAttribute="trailing" id="4Ke-Qf-QvG"/>
                             <constraint firstItem="h2w-uW-VcV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="Bd1-hH-Vy0"/>
                             <constraint firstItem="Qgd-Ao-xvN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CrS-ro-0cm"/>
-                            <constraint firstItem="Qgd-Ao-xvN" firstAttribute="top" secondItem="PX0-hR-uI6" secondAttribute="bottom" constant="12" id="WXv-b9-2CY"/>
-                            <constraint firstItem="PX0-hR-uI6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="ZGH-nx-ZRE"/>
+                            <constraint firstItem="Qgd-Ao-xvN" firstAttribute="top" secondItem="PX0-hR-uI6" secondAttribute="bottom" constant="4" id="WXv-b9-2CY"/>
+                            <constraint firstItem="PX0-hR-uI6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="2" id="ZGH-nx-ZRE"/>
                             <constraint firstItem="Qgd-Ao-xvN" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cxL-Qh-uf8"/>
-                            <constraint firstAttribute="trailing" secondItem="h2w-uW-VcV" secondAttribute="trailing" constant="252" id="gVF-G2-dbj"/>
-                            <constraint firstItem="PX0-hR-uI6" firstAttribute="leading" secondItem="h2w-uW-VcV" secondAttribute="trailing" constant="198" id="rdM-1m-bp9"/>
+                            <constraint firstAttribute="trailing" secondItem="h2w-uW-VcV" secondAttribute="trailing" constant="228" id="gVF-G2-dbj"/>
+                            <constraint firstItem="PX0-hR-uI6" firstAttribute="leading" secondItem="h2w-uW-VcV" secondAttribute="trailing" constant="174" id="rdM-1m-bp9"/>
                             <constraint firstItem="h2w-uW-VcV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="utk-Il-0IJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PX0-hR-uI6" secondAttribute="trailing" constant="32" id="xx8-U9-93m"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PX0-hR-uI6" secondAttribute="trailing" constant="10" id="xx8-U9-93m"/>
                             <constraint firstItem="Qgd-Ao-xvN" firstAttribute="top" secondItem="h2w-uW-VcV" secondAttribute="bottom" constant="12" id="zGm-UE-mIp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -169,7 +173,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Content" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRW-Er-HH0">
                                 <rect key="frame" x="22" y="441" width="331" height="162"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.51372549019607838" green="0.61176470588235299" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -192,7 +196,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="XfW-zP-E5R"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.2627450980392157" green="0.3411764705882353" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>

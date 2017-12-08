@@ -15,6 +15,8 @@ struct Journal {
     let title: String
 
     let content: String
+    
+    let date: String
 
     let urlString: String
 

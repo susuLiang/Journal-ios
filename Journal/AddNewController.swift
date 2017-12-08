@@ -49,7 +49,10 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
     }
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        UIApplication.shared.statusBarStyle = .lightContent
     
         setTextField()
 
@@ -113,9 +116,11 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
                 
                 ref.child("Entry").child((self.journal?.id)!).setValue(value)
                 
-            }
+            } else {
 
-            ref.child("Entry").childByAutoId().setValue(value)
+                ref.child("Entry").childByAutoId().setValue(value)
+                
+            }
 
         }
         
@@ -182,7 +187,7 @@ extension AddNewController {
             
             Nuke.loadImage(with: (journal?.imageURL)!, into: photoPlaced)
             
-            photoPlaced.contentMode = .scaleAspectFit
+            photoPlaced.contentMode = .scaleAspectFill
         }
 
     }
