@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import Nuke
 
 class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -62,13 +63,8 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(journal)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
+
 
     @IBAction func saveEntry() {
 
@@ -97,7 +93,7 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
         let storageRef = Storage.storage().reference()
 
         let metadata = StorageMetadata()
-
+        
         metadata.contentType = "image/jpg"
 
         let uploadTask = storageRef.child("\(title).jpg").putData(data, metadata: metadata) { (metadata, error) in
@@ -111,7 +107,13 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
 
             let downloadURL = metadata.downloadURL()?.absoluteString
 
-            let value = ["title": title, "content": content, "imageURL": downloadURL]
+            let value = ["title": title, "content": content, "imageURL": downloadURL, "date": "\(Date())"]
+            
+            if self.journal != nil {
+                
+                ref.child("Entry").child((self.journal?.id)!).setValue(value)
+                
+            }
 
             ref.child("Entry").childByAutoId().setValue(value)
 
@@ -131,6 +133,8 @@ extension AddNewController {
         titleTextField.becomeFirstResponder()
 
         titleTextField.borderStyle = .none
+        
+        titleTextField.tintColor = .clear
 
         contentTextField.contentVerticalAlignment = .top
 
@@ -139,6 +143,9 @@ extension AddNewController {
         contentTextField.becomeFirstResponder()
 
         contentTextField.borderStyle = .none
+        
+        contentTextField.tintColor = .clear
+        
         
         if journal != nil {
             
@@ -170,6 +177,13 @@ extension AddNewController {
         photoPlaced.contentMode = .center
 
         photoPlaced.tintColor = UIColor.white
+        
+        if journal != nil {
+            
+            Nuke.loadImage(with: (journal?.imageURL)!, into: photoPlaced)
+            
+            photoPlaced.contentMode = .scaleAspectFit
+        }
 
     }
 

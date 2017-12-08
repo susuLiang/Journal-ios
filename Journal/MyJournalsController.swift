@@ -23,7 +23,11 @@ class MyJournalsController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-
+        
+        Database.database().isPersistenceEnabled = true
+        
+        Database.database().reference().keepSynced(true)
+        
         Database.database().reference().child("Entry").observe(.value) { (snapshot) in
 
             self.journals = []
@@ -31,12 +35,13 @@ class MyJournalsController: UIViewController, UITableViewDelegate, UITableViewDa
             if let objects = snapshot.children.allObjects as? [DataSnapshot] {
 
                 for object in objects {
-                    if let entry = object.value as? NSDictionary {
+                    if let entry = object.value as? NSDictionary,
+                        let id = object.key as? String {
                         if
                             let title = entry["title"] as? String,
                             let content = entry["content"] as? String,
                             let imageURL = entry["imageURL"] as? String {
-                            self.journals.append(Journal(title: title, content: content, urlString: imageURL))
+                            self.journals.append(Journal(id: id,title: title, content: content, urlString: imageURL))
                         }
                     }
                 }
@@ -51,8 +56,11 @@ class MyJournalsController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? MyJournalsTableViewCell else { fatalError() }
+        
         cell.journalTitle.text = journals[indexPath.row].title
+        
         Nuke.loadImage(with: journals[indexPath.row].imageURL , into: cell.photoPlaced)
+        
         return cell
     }
 

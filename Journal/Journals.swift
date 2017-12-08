@@ -9,6 +9,8 @@
 import Foundation
 
 struct Journal {
+    
+    let id: String
 
     let title: String
 
