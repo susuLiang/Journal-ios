@@ -80,9 +80,9 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
 
             let content = contentTextField.text,
 
-            let title = titleTextField.text,
+            let title = titleTextField.text
 
-            let photo = photoPlaced.image
+//            let photo = photoPlaced.image
 
         else {
 
@@ -104,7 +104,7 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
         
         metadata.contentType = "image/jpg"
 
-        let uploadTask = storageRef.child("\(title).jpg").putData(data, metadata: metadata) { (metadata, error) in
+        storageRef.child("\(title).jpg").putData(data, metadata: metadata) { (metadata, error) in
 
             guard let metadata = metadata else {
 
