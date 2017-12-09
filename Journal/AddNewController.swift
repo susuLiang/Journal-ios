@@ -140,22 +140,13 @@ extension AddNewController {
 
         titleTextField.isUserInteractionEnabled = true
 
-        titleTextField.becomeFirstResponder()
-
         titleTextField.borderStyle = .none
-        
-        titleTextField.tintColor = .clear
 
         contentTextField.contentVerticalAlignment = .top
 
         contentTextField.isUserInteractionEnabled = true
 
-        contentTextField.becomeFirstResponder()
-
         contentTextField.borderStyle = .none
-        
-        contentTextField.tintColor = .clear
-        
         
         if journal != nil {
             
@@ -192,7 +183,7 @@ extension AddNewController {
             
             Nuke.loadImage(with: (journal?.imageURL)!, into: photoPlaced)
             
-            photoPlaced.contentMode = .scaleAspectFill
+            photoPlaced.contentMode = .scaleToFill
         }
 
     }
