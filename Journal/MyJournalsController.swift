@@ -120,34 +120,52 @@ class MyJournalsController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    @IBAction func showCell(_ sender: UIButton) {
-        if
-
-            let cell = sender.superview?.superview as? MyJournalsTableViewCell,
-
-            let tableview = cell.superview as? UITableView,
-
-            let indexPath = tableview.indexPath(for: cell) {
-
-                performSegue(withIdentifier: "showCell", sender: self.journals[indexPath.row])
-            
-        }
-    }
-    
+//    @IBAction func showCell(_ sender: UIButton) {
+//        if
+//
+//            let cell = sender.superview?.superview as? MyJournalsTableViewCell,
+//
+//            let tableview = cell.superview as? UITableView,
+//
+//            let indexPath = tableview.indexPath(for: cell) {
+//
+//                performSegue(withIdentifier: "showCell", sender: self.journals[indexPath.row])
+//            
+//        }
+//    }
+//    
+//    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        
+//        if segue.identifier == "showCell" {
+//            
+//            if let showVC = segue.destination as? AddNewController {
+//                
+//                if let journal = sender as? Journal {
+//                    
+//                    showVC.journal = journal
+//                    
+//                }
+//            }
+//        }
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "showCell" {
             
             if let showVC = segue.destination as? AddNewController {
-                
                 if let journal = sender as? Journal {
-                    
                     showVC.journal = journal
-                    
+                    print(showVC.journal)
                 }
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            performSegue(withIdentifier: "showCell", sender: journals[indexPath.row])
+        }
+    
+    
 
 }

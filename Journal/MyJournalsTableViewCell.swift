@@ -42,7 +42,7 @@ class MyJournalsTableViewCell: UITableViewCell {
 
         view.layer.cornerRadius = 8
         
-        view.contentMode = .center
+        view.contentMode = .scaleAspectFill
         
         view.clipsToBounds = true
 

@@ -56,11 +56,8 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62K-bs-qN2">
-                                                    <rect key="frame" x="0.0" y="-1" width="375" height="212"/>
+                                                    <rect key="frame" x="0.0" y="-1" width="375" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <action selector="showCell:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pvs-bf-LOJ"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -81,7 +78,6 @@
                                             <outlet property="photoPlaced" destination="CCH-qW-QMy" id="hJr-N2-mt4"/>
                                             <outlet property="separatorView" destination="aM6-7F-UUG" id="jTc-W5-2rq"/>
                                             <outlet property="showCellButton" destination="62K-bs-qN2" id="dZL-Is-ZQb"/>
-                                            <segue destination="R2K-mv-Edy" kind="show" identifier="showCell" id="auv-oZ-aiv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -126,6 +122,7 @@
                         <outlet property="addButton" destination="PX0-hR-uI6" id="nqk-iS-wIK"/>
                         <outlet property="pageTitleLabel" destination="h2w-uW-VcV" id="8Zx-Nz-fxh"/>
                         <outlet property="tableView" destination="Qgd-Ao-xvN" id="0je-sW-yh7"/>
+                        <segue destination="R2K-mv-Edy" kind="show" identifier="showCell" id="haD-g4-rDL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -135,7 +132,7 @@
         <!--Add New Controller-->
         <scene sceneID="ibg-TP-jbS">
             <objects>
-                <viewController id="R2K-mv-Edy" customClass="AddNewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addNew" id="R2K-mv-Edy" customClass="AddNewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Opw-9Q-Y6x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -238,6 +235,6 @@
         <image name="icon_plus" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="auv-oZ-aiv"/>
+        <segue reference="haD-g4-rDL"/>
     </inferredMetricsTieBreakers>
 </document>
