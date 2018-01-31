@@ -13,7 +13,7 @@
 		1F1B565F1FDA2A9800C68B17 /* Journal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F1B565D1FDA2A9800C68B17 /* Journal.xcdatamodeld */; };
 		1F1B56611FDA2A9800C68B17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F1B56601FDA2A9800C68B17 /* Assets.xcassets */; };
 		1F1B56641FDA2A9800C68B17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F1B56621FDA2A9800C68B17 /* LaunchScreen.storyboard */; };
-		1F1B566C1FDA2CA100C68B17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F1B566B1FDA2CA100C68B17 /* GoogleService-Info.plist */; };
+		1F77DD3F20220829004761B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F77DD3E20220828004761B3 /* GoogleService-Info.plist */; };
 		1F97285B1FDA313F00A37B8F /* MyJournalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F97285A1FDA313F00A37B8F /* MyJournalsTableViewCell.swift */; };
 		1F97285F1FDA39D000A37B8F /* AddNewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F97285E1FDA39D000A37B8F /* AddNewController.swift */; };
 		1F9728631FDA627500A37B8F /* Journals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9728621FDA627500A37B8F /* Journals.swift */; };
@@ -29,7 +29,7 @@
 		1F1B56601FDA2A9800C68B17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F1B56631FDA2A9800C68B17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F1B56651FDA2A9800C68B17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F1B566B1FDA2CA100C68B17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1F77DD3E20220828004761B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1F97285A1FDA313F00A37B8F /* MyJournalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJournalsTableViewCell.swift; sourceTree = "<group>"; };
 		1F97285E1FDA39D000A37B8F /* AddNewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewController.swift; sourceTree = "<group>"; };
 		1F9728621FDA627500A37B8F /* Journals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journals.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 				1F1B56621FDA2A9800C68B17 /* LaunchScreen.storyboard */,
 				1F1B56651FDA2A9800C68B17 /* Info.plist */,
 				1F1B565D1FDA2A9800C68B17 /* Journal.xcdatamodeld */,
-				1F1B566B1FDA2CA100C68B17 /* GoogleService-Info.plist */,
+				1F77DD3E20220828004761B3 /* GoogleService-Info.plist */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -166,10 +166,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F77DD3F20220829004761B3 /* GoogleService-Info.plist in Resources */,
 				1F1B56641FDA2A9800C68B17 /* LaunchScreen.storyboard in Resources */,
 				1F1B56611FDA2A9800C68B17 /* Assets.xcassets in Resources */,
 				1F1B565C1FDA2A9800C68B17 /* Main.storyboard in Resources */,
-				1F1B566C1FDA2CA100C68B17 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +199,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Journal/Pods-Journal-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -207,6 +208,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -400,6 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G794XMKT85;
 				INFOPLIST_FILE = Journal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = susu.Journal;
@@ -415,6 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G794XMKT85;
 				INFOPLIST_FILE = Journal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = susu.Journal;

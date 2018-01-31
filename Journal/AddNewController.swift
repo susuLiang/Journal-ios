@@ -82,8 +82,6 @@ class AddNewController: UIViewController, UIImagePickerControllerDelegate, UINav
 
             let title = titleTextField.text
 
-//            let photo = photoPlaced.image
-
         else {
 
             print("Form is not valid")
@@ -159,11 +157,9 @@ extension AddNewController {
 
     func setSaveButton() {
 
-        saveButton.layer.cornerRadius = 22
+        saveButton.layer.cornerRadius = saveButton.frame.height / 2
 
         saveButton.titleLabel?.font = UIFont(name: "SFUIText", size: 20)
-
-        saveButton.frame.size.height = 44
 
         saveButton.backgroundColor = UIColor(red: 237/255, green: 96/255, blue: 81/255, alpha: 1)
 

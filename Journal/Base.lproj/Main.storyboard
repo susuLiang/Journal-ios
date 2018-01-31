@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -59,9 +59,16 @@
                                                     <rect key="frame" x="0.0" y="-1" width="375" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ok4-ig-hVv">
+                                                    <rect key="frame" x="179" y="192" width="17.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Rbk-EV-IUp" firstAttribute="leading" secondItem="Cad-dr-ESs" secondAttribute="leadingMargin" constant="30" id="8ae-dM-Xua"/>
+                                                <constraint firstItem="Ok4-ig-hVv" firstAttribute="centerY" secondItem="aM6-7F-UUG" secondAttribute="centerY" id="9Rp-JD-Z4J"/>
                                                 <constraint firstAttribute="trailing" secondItem="CCH-qW-QMy" secondAttribute="trailing" constant="20" id="Fyi-XA-cSa"/>
                                                 <constraint firstItem="CCH-qW-QMy" firstAttribute="leading" secondItem="Cad-dr-ESs" secondAttribute="leading" constant="20" id="KL0-PI-ha1"/>
                                                 <constraint firstItem="Rbk-EV-IUp" firstAttribute="top" secondItem="CCH-qW-QMy" secondAttribute="bottom" constant="16" id="UKZ-e3-nhq"/>
@@ -69,6 +76,7 @@
                                                 <constraint firstItem="aM6-7F-UUG" firstAttribute="leading" secondItem="Cad-dr-ESs" secondAttribute="leading" constant="30" id="fsL-bm-on5"/>
                                                 <constraint firstItem="aM6-7F-UUG" firstAttribute="top" secondItem="Rbk-EV-IUp" secondAttribute="bottom" constant="20" id="geY-zQ-evE"/>
                                                 <constraint firstAttribute="trailing" secondItem="aM6-7F-UUG" secondAttribute="trailing" constant="30" id="hQ3-kX-YCO"/>
+                                                <constraint firstItem="Ok4-ig-hVv" firstAttribute="centerX" secondItem="aM6-7F-UUG" secondAttribute="centerX" id="mJ1-IX-5nt"/>
                                                 <constraint firstItem="CCH-qW-QMy" firstAttribute="top" secondItem="Cad-dr-ESs" secondAttribute="top" constant="10" id="vbO-fJ-LCI"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Rbk-EV-IUp" secondAttribute="trailing" id="xjO-XD-hyf"/>
                                             </constraints>
@@ -137,13 +145,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NVT-NP-pZ6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NVT-NP-pZ6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="375" id="mVb-mM-DOn"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3d-aK-afz">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3d-aK-afz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="375" id="TSX-8d-n76"/>
@@ -174,10 +182,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aid-Su-lJO">
-                                <rect key="frame" x="108" y="615" width="160" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aid-Su-lJO">
+                                <rect key="frame" x="108" y="616" width="160" height="36"/>
                                 <color key="backgroundColor" red="0.92941176470588238" green="0.37647058823529411" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="KP9-zo-6r3"/>
+                                    <constraint firstAttribute="width" constant="160" id="uIi-sX-8IJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="tintColor" red="0.92941176470588238" green="0.37647058823529411" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Save">
@@ -201,6 +212,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="t3d-aK-afz" firstAttribute="trailing" secondItem="Y29-3i-dmb" secondAttribute="trailing" id="7KM-AY-ZR8"/>
+                            <constraint firstItem="Y29-3i-dmb" firstAttribute="bottom" secondItem="Aid-Su-lJO" secondAttribute="bottom" constant="15" id="8Ou-CH-vSe"/>
                             <constraint firstItem="NVT-NP-pZ6" firstAttribute="trailing" secondItem="Y29-3i-dmb" secondAttribute="trailing" id="Da9-pV-Ik7"/>
                             <constraint firstItem="t3d-aK-afz" firstAttribute="top" secondItem="Opw-9Q-Y6x" secondAttribute="top" id="GnK-Gu-8Ad"/>
                             <constraint firstItem="3dh-84-fxn" firstAttribute="top" secondItem="NVT-NP-pZ6" secondAttribute="bottom" constant="10" id="M6o-8h-DO7"/>
@@ -211,6 +223,7 @@
                             <constraint firstItem="cSe-jp-B1x" firstAttribute="leading" secondItem="Opw-9Q-Y6x" secondAttribute="leadingMargin" constant="6" id="bEA-Vd-jXA"/>
                             <constraint firstItem="NVT-NP-pZ6" firstAttribute="top" secondItem="Opw-9Q-Y6x" secondAttribute="top" id="hXl-18-Ufx"/>
                             <constraint firstItem="t3d-aK-afz" firstAttribute="leading" secondItem="Y29-3i-dmb" secondAttribute="leading" id="i3f-CZ-JeY"/>
+                            <constraint firstItem="Aid-Su-lJO" firstAttribute="centerX" secondItem="Opw-9Q-Y6x" secondAttribute="centerX" id="kEm-Rp-wy3"/>
                             <constraint firstItem="3dh-84-fxn" firstAttribute="leading" secondItem="Y29-3i-dmb" secondAttribute="leading" constant="22" id="wa1-Cd-zDb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Y29-3i-dmb"/>
